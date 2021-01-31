@@ -199,6 +199,12 @@ module.hot.accept(reloadCSS);
 module.exports = "/drawers.b3e5a57b.jpg";
 },{}],"images/avatar-michelle.jpg":[function(require,module,exports) {
 module.exports = "/avatar-michelle.ab26371a.jpg";
+},{}],"images/icon-facebook.svg":[function(require,module,exports) {
+module.exports = "/icon-facebook.db88fd38.svg";
+},{}],"images/icon-twitter.svg":[function(require,module,exports) {
+module.exports = "/icon-twitter.9dcd00ee.svg";
+},{}],"images/icon-pinterest.svg":[function(require,module,exports) {
+module.exports = "/icon-pinterest.6b47e241.svg";
 },{}],"js/data.js":[function(require,module,exports) {
 "use strict";
 
@@ -211,6 +217,12 @@ var _drawers = _interopRequireDefault(require("../images/drawers.jpg"));
 
 var _avatarMichelle = _interopRequireDefault(require("../images/avatar-michelle.jpg"));
 
+var _iconFacebook = _interopRequireDefault(require("../images/icon-facebook.svg"));
+
+var _iconTwitter = _interopRequireDefault(require("../images/icon-twitter.svg"));
+
+var _iconPinterest = _interopRequireDefault(require("../images/icon-pinterest.svg"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var data = {
@@ -219,11 +231,14 @@ var data = {
   description: "Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.",
   image: _avatarMichelle.default,
   name: "Michelle Appleton",
-  date: "28 Jun 2020"
+  date: "28 Jun 2020",
+  facebook: _iconFacebook.default,
+  twitter: _iconTwitter.default,
+  pinterest: _iconPinterest.default
 };
 var _default = data;
 exports.default = _default;
-},{"../images/drawers.jpg":"images/drawers.jpg","../images/avatar-michelle.jpg":"images/avatar-michelle.jpg"}],"js/Card.js":[function(require,module,exports) {
+},{"../images/drawers.jpg":"images/drawers.jpg","../images/avatar-michelle.jpg":"images/avatar-michelle.jpg","../images/icon-facebook.svg":"images/icon-facebook.svg","../images/icon-twitter.svg":"images/icon-twitter.svg","../images/icon-pinterest.svg":"images/icon-pinterest.svg"}],"js/Card.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -246,6 +261,26 @@ var Title = function Title(poster, title, description, image, name, date) {
 
 var _default = Title;
 exports.default = _default;
+},{}],"js/Social.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Social = function Social(facebook, twitter, pinterest) {
+  _classCallCheck(this, Social);
+
+  this.facebook = facebook;
+  this.twitter = twitter;
+  this.pinterest = pinterest;
+};
+
+var _default = Social;
+exports.default = _default;
 },{}],"js/UI.js":[function(require,module,exports) {
 "use strict";
 
@@ -267,11 +302,11 @@ var UI = /*#__PURE__*/function () {
 
   _createClass(UI, [{
     key: "render",
-    value: function render(e) {
+    value: function render(card, social) {
       var root = document.getElementById("root"),
           article = document.createElement("article");
       article.className = "card";
-      article.innerHTML = "\n        <div class=\"card__header\">\n          <img class=\"card__img\" src=\"".concat(e.poster, "\" alt=\"drawers\" />\n        </div>\n        <div class=\"card__body\">\n          <h2 class=\"card__title\">\n            ").concat(e.title, "\n          </h2>\n          <p class=\"card__description\">\n            ").concat(e.description, "\n          </p>\n          <ul class=\"card__list\">\n            <li class=\"card__item\">\n              <img\n                class=\"card__listImg\"\n                src=\"").concat(e.image, "\"\n                alt=\"").concat(e.name, "\"\n              />\n            </li>\n            <li class=\"card__item\">\n            <span class=\"card__name\">").concat(e.name, "</span>\n              <span class=\"card__date\">").concat(e.date, "</span>\n            </li>\n            <li class=\"card__item\">\n              <button\n                id=\"card__btn\"\n                class=\"card__btn\"\n                type=\"button\"\n                name=\"button toogle\"\n                aria-label=\"button toogle\"\n              >\n                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"13\">\n                  <path\n                    fill=\"#6E8098\"\n                    d=\"M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z\"\n                  />\n                </svg>\n              </button>\n            </li>\n          </ul>\n        </div>\n        <div id=\"active\" class=\"card__active\">\n          <ul class=\"active__list\">\n            <li class=\"active__item\">\n              <p class=\"active__description\">Share</p>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://www.facebook.com/\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"./images/icon-facebook.svg\" alt=\"facebook link\" />\n              </a>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://twitter.com\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"./images/icon-twitter.svg\" alt=\"twitter link\" />\n              </a>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://www.pinterest.com/\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"./images/icon-pinterest.svg\" alt=\"pinterest link\" />\n              </a>\n            </li>\n          </ul>\n        </div>\n    ");
+      article.innerHTML = "\n        <div class=\"card__header\">\n          <img class=\"card__img\" src=\"".concat(card.poster, "\" alt=\"drawers\" />\n        </div>\n        <div class=\"card__body\">\n          <h2 class=\"card__title\">\n            ").concat(card.title, "\n          </h2>\n          <p class=\"card__description\">\n            ").concat(card.description, "\n          </p>\n          <ul class=\"card__list\">\n            <li class=\"card__item\">\n              <img\n                class=\"card__listImg\"\n                src=\"").concat(card.image, "\"\n                alt=\"").concat(card.name, "\"\n              />\n            </li>\n            <li class=\"card__item\">\n            <span class=\"card__name\">").concat(card.name, "</span>\n              <span class=\"card__date\">").concat(card.date, "</span>\n            </li>\n            <li class=\"card__item\">\n              <button\n                id=\"card__btn\"\n                class=\"card__btn\"\n                type=\"button\"\n                name=\"button toogle\"\n                aria-label=\"button toogle\"\n              >\n                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"13\">\n                  <path\n                    fill=\"#6E8098\"\n                    d=\"M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z\"\n                  />\n                </svg>\n              </button>\n            </li>\n          </ul>\n        </div>\n        <div id=\"active\" class=\"card__active\">\n          <ul class=\"active__list\">\n            <li class=\"active__item\">\n              <p class=\"active__description\">Share</p>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://www.facebook.com/\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"").concat(social.facebook, "\" alt=\"facebook link\" />\n              </a>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://twitter.com\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"").concat(social.twitter, "\" alt=\"twitter link\" />\n              </a>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://www.pinterest.com/\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"").concat(social.pinterest, "\" alt=\"pinterest link\" />\n              </a>\n            </li>\n          </ul>\n        </div>\n    ");
       root.appendChild(article);
     }
   }, {
@@ -303,16 +338,20 @@ var _data = _interopRequireDefault(require("./data"));
 
 var _Card = _interopRequireDefault(require("./Card"));
 
+var _Social = _interopRequireDefault(require("./Social"));
+
 var _UI = _interopRequireDefault(require("./UI"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.addEventListener("DOMContentLoaded", function () {
   var card = new _Card.default(_data.default.poster, _data.default.title, _data.default.description, _data.default.image, _data.default.name, _data.default.date);
+  var social = new _Social.default(_data.default.facebook, _data.default.twitter, _data.default.pinterest);
   var ui = new _UI.default();
-  ui.render(card);
+  ui.render(card, social);
+  ui.handleClick();
 });
-},{"./data":"js/data.js","./Card":"js/Card.js","./UI":"js/UI.js"}],"index.js":[function(require,module,exports) {
+},{"./data":"js/data.js","./Card":"js/Card.js","./Social":"js/Social.js","./UI":"js/UI.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("normalize.css");

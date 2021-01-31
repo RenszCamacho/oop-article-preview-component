@@ -1,5 +1,8 @@
 import poster from "../images/drawers.jpg";
 import avatar from "../images/avatar-michelle.jpg";
+import facebook from "../images/icon-facebook.svg";
+import twitter from "../images/icon-twitter.svg";
+import pinterest from "../images/icon-pinterest.svg";
 
 const data = {
   poster: poster,
@@ -10,6 +13,9 @@ const data = {
   image: avatar,
   name: "Michelle Appleton",
   date: "28 Jun 2020",
+  facebook: facebook,
+  twitter: twitter,
+  pinterest: pinterest,
 };
 
 export default data;

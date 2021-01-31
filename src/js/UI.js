@@ -1,30 +1,30 @@
 class UI {
-  render(e) {
+  render(card, social) {
     const root = document.getElementById("root"),
       article = document.createElement("article");
     article.className = "card";
     article.innerHTML = `
         <div class="card__header">
-          <img class="card__img" src="${e.poster}" alt="drawers" />
+          <img class="card__img" src="${card.poster}" alt="drawers" />
         </div>
         <div class="card__body">
           <h2 class="card__title">
-            ${e.title}
+            ${card.title}
           </h2>
           <p class="card__description">
-            ${e.description}
+            ${card.description}
           </p>
           <ul class="card__list">
             <li class="card__item">
               <img
                 class="card__listImg"
-                src="${e.image}"
-                alt="${e.name}"
+                src="${card.image}"
+                alt="${card.name}"
               />
             </li>
             <li class="card__item">
-            <span class="card__name">${e.name}</span>
-              <span class="card__date">${e.date}</span>
+            <span class="card__name">${card.name}</span>
+              <span class="card__date">${card.date}</span>
             </li>
             <li class="card__item">
               <button
@@ -55,7 +55,7 @@ class UI {
                 target="_blank"
                 class="active__link"
               >
-                <img src="./images/icon-facebook.svg" alt="facebook link" />
+                <img src="${social.facebook}" alt="facebook link" />
               </a>
             </li>
             <li class="active__item active__item--social">
@@ -64,7 +64,7 @@ class UI {
                 target="_blank"
                 class="active__link"
               >
-                <img src="./images/icon-twitter.svg" alt="twitter link" />
+                <img src="${social.twitter}" alt="twitter link" />
               </a>
             </li>
             <li class="active__item active__item--social">
@@ -73,7 +73,7 @@ class UI {
                 target="_blank"
                 class="active__link"
               >
-                <img src="./images/icon-pinterest.svg" alt="pinterest link" />
+                <img src="${social.pinterest}" alt="pinterest link" />
               </a>
             </li>
           </ul>

@@ -1,4 +1,4 @@
-<img src="./public/images/desktop-preview.jpg" alt="home-page" style="height: 100px; width:100px;" />
+<img src="./src/images/desktop-preview.jpg" alt="home-page" style="height: 100px; width:100px;" />
 
 ## Link. 🔗
 
@@ -51,4 +51,5 @@ npm run build or yarn build
 ```
 
 ```
+
 # oop-article-preview-component

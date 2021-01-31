@@ -1,0 +1,230 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background;
+  font-size: 1.3rem;
+}
+
+.card {
+  position: relative;
+  width: 33rem;
+  background-color: white;
+  border-radius: 1rem;
+  margin: 7rem 0;
+  overflow: hidden;
+  animation: bounceInDown 1s;
+
+  @include rwd(large) {
+    width: 73.1rem;
+    height: 28.1rem;
+    display: flex;
+    box-shadow: 35px 55px 32px -13px rgb(220, 228, 234);
+    overflow: unset;
+  }
+
+  &__header {
+    height: 20rem;
+
+    @include rwd(large) {
+      height: inherit;
+      width: inherit;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    height: inherit;
+
+    @include rwd(large) {
+      border-radius: 1rem 0 0 1rem;
+      object-fit: fill;
+    }
+  }
+
+  &__body {
+    padding: 3.1rem;
+    padding-bottom: 1.5rem;
+
+    @include rwd(large) {
+      padding: 3.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 1.4rem;
+    line-height: 23px;
+  }
+
+  &__description {
+    color: $secondary;
+    font-size: 1.39rem;
+    font-weight: 400;
+    line-height: 2.1rem;
+    margin-bottom: 3.8rem;
+
+    @include rwd(large) {
+      margin-bottom: 2.8rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__item:nth-child(2) {
+    margin-left: 1.2rem;
+  }
+
+  &__item:last-child {
+    margin-left: auto;
+  }
+
+  &__listImg {
+    border-radius: 50%;
+    width: 4.3rem;
+  }
+
+  &__name,
+  &__date {
+    display: block;
+  }
+
+  &__name {
+    color: $primary;
+    font-weight: 700;
+    font-size: 1.39rem;
+    margin-bottom: 0.8rem;
+  }
+
+  &__date {
+    color: $success;
+    word-spacing: 0.3rem;
+  }
+
+  &__btn {
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    background-color: $background;
+    transition: all 250ms ease;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+  }
+
+  &__btn--active {
+    background-color: $secondary;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    z-index: 10;
+    position: relative;
+    transition: all 250ms ease;
+    cursor: pointer;
+
+    @include rwd(large) {
+      background-color: $primary;
+    }
+
+    svg path {
+      fill: #fff;
+    }
+  }
+
+  &__active {
+    display: none;
+    animation: fadeIn 350ms;
+  }
+}
+
+.active {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 7.4rem;
+  width: inherit;
+  background-color: $primary;
+  display: block;
+  border-radius: 0 0 1rem 1rem;
+
+  &::after {
+    @include rwd(large) {
+      content: "";
+      width: 2rem;
+      height: 2rem;
+      background-color: inherit;
+      position: absolute;
+      bottom: -17%;
+      left: 53%;
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+
+  @include rwd(large) {
+    width: 25rem;
+    height: 6rem;
+    left: unset;
+    right: -7rem;
+    bottom: 11rem;
+    border-radius: 1rem;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    padding: 0% 2rem;
+
+    @include rwd(large) {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    margin: 0% 1rem;
+
+    @include rwd(large) {
+      margin: 0% 0.5rem;
+    }
+  }
+
+  &__item--social img:hover {
+    animation: spin 300ms linear;
+  }
+
+  &__description {
+    text-transform: uppercase;
+    color: $success;
+    letter-spacing: 5px;
+  }
+
+  &__btn {
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    background-color: $secondary;
+    cursor: pointer;
+
+    @include rwd(large) {
+      background-color: $primary;
+    }
+  }
+}

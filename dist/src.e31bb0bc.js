@@ -195,19 +195,124 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/App.js":[function(require,module,exports) {
-var cardBtn = document.getElementById("card__btn");
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"images/drawers.jpg":[function(require,module,exports) {
+module.exports = "/drawers.b3e5a57b.jpg";
+},{}],"images/avatar-michelle.jpg":[function(require,module,exports) {
+module.exports = "/avatar-michelle.ab26371a.jpg";
+},{}],"js/data.js":[function(require,module,exports) {
+"use strict";
 
-var toogle = function toogle(btn) {
-  var active = document.getElementById("active");
-  btn.addEventListener("click", function () {
-    active.classList.toggle("active");
-    cardBtn.classList.toggle("card__btn--active");
-  });
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _drawers = _interopRequireDefault(require("../images/drawers.jpg"));
+
+var _avatarMichelle = _interopRequireDefault(require("../images/avatar-michelle.jpg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var data = {
+  poster: _drawers.default,
+  title: "Shift the overall look and feel by adding these wonderful touches to furniture in your home",
+  description: "Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.",
+  image: _avatarMichelle.default,
+  name: "Michelle Appleton",
+  date: "28 Jun 2020"
+};
+var _default = data;
+exports.default = _default;
+},{"../images/drawers.jpg":"images/drawers.jpg","../images/avatar-michelle.jpg":"images/avatar-michelle.jpg"}],"js/Card.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Title = function Title(poster, title, description, image, name, date) {
+  _classCallCheck(this, Title);
+
+  this.poster = poster;
+  this.title = title;
+  this.description = description;
+  this.image = image;
+  this.name = name;
+  this.date = date;
 };
 
-toogle(cardBtn);
-},{}],"index.js":[function(require,module,exports) {
+var _default = Title;
+exports.default = _default;
+},{}],"js/UI.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var UI = /*#__PURE__*/function () {
+  function UI() {
+    _classCallCheck(this, UI);
+  }
+
+  _createClass(UI, [{
+    key: "render",
+    value: function render(e) {
+      var root = document.getElementById("root"),
+          article = document.createElement("article");
+      article.className = "card";
+      article.innerHTML = "\n        <div class=\"card__header\">\n          <img class=\"card__img\" src=\"".concat(e.poster, "\" alt=\"drawers\" />\n        </div>\n        <div class=\"card__body\">\n          <h2 class=\"card__title\">\n            ").concat(e.title, "\n          </h2>\n          <p class=\"card__description\">\n            ").concat(e.description, "\n          </p>\n          <ul class=\"card__list\">\n            <li class=\"card__item\">\n              <img\n                class=\"card__listImg\"\n                src=\"").concat(e.image, "\"\n                alt=\"").concat(e.name, "\"\n              />\n            </li>\n            <li class=\"card__item\">\n            <span class=\"card__name\">").concat(e.name, "</span>\n              <span class=\"card__date\">").concat(e.date, "</span>\n            </li>\n            <li class=\"card__item\">\n              <button\n                id=\"card__btn\"\n                class=\"card__btn\"\n                type=\"button\"\n                name=\"button toogle\"\n                aria-label=\"button toogle\"\n              >\n                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"13\">\n                  <path\n                    fill=\"#6E8098\"\n                    d=\"M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z\"\n                  />\n                </svg>\n              </button>\n            </li>\n          </ul>\n        </div>\n        <div id=\"active\" class=\"card__active\">\n          <ul class=\"active__list\">\n            <li class=\"active__item\">\n              <p class=\"active__description\">Share</p>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://www.facebook.com/\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"./images/icon-facebook.svg\" alt=\"facebook link\" />\n              </a>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://twitter.com\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"./images/icon-twitter.svg\" alt=\"twitter link\" />\n              </a>\n            </li>\n            <li class=\"active__item active__item--social\">\n              <a\n                href=\"https://www.pinterest.com/\"\n                target=\"_blank\"\n                class=\"active__link\"\n              >\n                <img src=\"./images/icon-pinterest.svg\" alt=\"pinterest link\" />\n              </a>\n            </li>\n          </ul>\n        </div>\n    ");
+      root.appendChild(article);
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick() {
+      var cardBtn = document.getElementById("card__btn");
+
+      var toogle = function toogle(btn) {
+        var active = document.getElementById("active");
+        btn.addEventListener("click", function () {
+          active.classList.toggle("active");
+          cardBtn.classList.toggle("card__btn--active");
+        });
+      };
+
+      toogle(cardBtn);
+    }
+  }]);
+
+  return UI;
+}();
+
+var _default = UI;
+exports.default = _default;
+},{}],"js/App.js":[function(require,module,exports) {
+"use strict";
+
+var _data = _interopRequireDefault(require("./data"));
+
+var _Card = _interopRequireDefault(require("./Card"));
+
+var _UI = _interopRequireDefault(require("./UI"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("DOMContentLoaded", function () {
+  var card = new _Card.default(_data.default.poster, _data.default.title, _data.default.description, _data.default.image, _data.default.name, _data.default.date);
+  var ui = new _UI.default();
+  ui.render(card);
+});
+},{"./data":"js/data.js","./Card":"js/Card.js","./UI":"js/UI.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("normalize.css");
@@ -243,7 +348,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49411" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51298" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

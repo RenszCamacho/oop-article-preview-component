@@ -5,29 +5,26 @@ class UI {
     article.className = "card";
     article.innerHTML = `
         <div class="card__header">
-          <img class="card__img" src="./images/drawers.jpg" alt="drawers" />
+          <img class="card__img" src="${e.poster}" alt="drawers" />
         </div>
         <div class="card__body">
           <h2 class="card__title">
-            Shift the overall look and feel by adding these wonderful touches to
-            furniture in your home
+            ${e.title}
           </h2>
           <p class="card__description">
-            Ever been in a room and felt like something was missing? Perhaps it
-            felt slightly bare and uninviting. I’ve got some simple tips to help
-            you make any room feel complete.
+            ${e.description}
           </p>
           <ul class="card__list">
             <li class="card__item">
               <img
                 class="card__listImg"
-                src="./images/avatar-michelle.jpg"
-                alt="michelle appleton"
+                src="${e.image}"
+                alt="${e.name}"
               />
             </li>
             <li class="card__item">
-              <span class="card__name">Michelle Appleton</span>
-              <span class="card__date">28 Jun 2020</span>
+            <span class="card__name">${e.name}</span>
+              <span class="card__date">${e.date}</span>
             </li>
             <li class="card__item">
               <button
@@ -99,3 +96,5 @@ class UI {
     toogle(cardBtn);
   }
 }
+
+export default UI;
